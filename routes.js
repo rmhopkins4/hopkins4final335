@@ -1,7 +1,10 @@
 const express = require("express");
+const path = require("path");
 const router = express.Router();
 const mongoose = require("mongoose");
-
+require('dotenv').config({
+    path: path.resolve(__dirname, '.env')
+});
 
 // define schema for saving user guesses
 const guessSchema = new mongoose.Schema({
@@ -26,7 +29,10 @@ router.post("/", async (req, res) => {
     try {
         // Call genderize.io API
         fetch(`https://api.genderize.io/?name=${name.toLowerCase()}`)
-            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                return res.json()
+            })
             .then(async (data) => {
                 let probabilityMale = null;
                 if (data.probability !== null) {
