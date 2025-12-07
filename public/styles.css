@@ -1,0 +1,11 @@
+body {
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+}
+
+button {
+    font-family: "Google Sans Code", monospace;
+    font-style: italic;
+    background-color: aliceblue;
+    color: darkblue;
+}
