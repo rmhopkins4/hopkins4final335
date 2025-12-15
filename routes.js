@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 
     try {
         // Call genderize.io API
-        fetch(`https://api.genderize.io/?name=${name.toLowerCase()}`)
+        fetch(`https://api.genderize.io/?name=${name.toLowerCase()}&api_key=${process.env.GENDERIZE_API_KEY}`)
             .then(res => {
                 console.log(res);
                 return res.json()
